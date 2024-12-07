@@ -19,7 +19,8 @@ This project is a web-based application built using **Google-Gemini-Pro** and **
    - Example: "What are the top-selling products?"
    
 2. **Generate SQL Query**: Upon clicking the "Generate SQL Query" button, the system uses **LangChain** with Google's **Generative AI** model to convert the natural language query into a valid SQL query.
-   cr
+
+3. **Database Response:** Once the SQL query is generated, the user can seamlessly view the results fetched directly from the MySQL database, displaying the relevant data in an easily digestible format. This feature enables users to interact with the database and retrieve the necessary information instantly.
    
 4. **Display Results**: The results from the database are shown on the right side of the interface in a structured and readable format.
 
@@ -28,20 +29,22 @@ This project is a web-based application built using **Google-Gemini-Pro** and **
 ## Installation
 
 ### Prerequisites
-- Python 3.x
-- A MySQL Database (You can use a local or remote database)
+- Python 3.9 or above.
+- A MySQL Database (local or remote database)
 
 ### Install Required Libraries
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/sql-query-generator.git
+   ```
+   ```bash
    cd sql-query-generator
    ```
 
 2. Create and activate a virtual environment (optional):
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scriptsctivate`
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
    ```
 
 3. Install the required libraries:
@@ -53,18 +56,18 @@ This project is a web-based application built using **Google-Gemini-Pro** and **
 Create a `.env` file in the root of the project and add the following environment variables to connect to your MySQL database:
 
 ```ini
+GEMINI_API_KEY=your_google_api_key
 db_user=your_db_user
 db_password=your_db_password
 db_host=your_db_host
 db_name=your_db_name
-GOOGLE_API_KEY=your_google_api_key
 ```
 
+- **GOOGLE_API_KEY**: Make an account and get an API key from [Google AI Studio](https://aistudio.google.com/apikey)
 - **db_user**: Your MySQL username.
 - **db_password**: Your MySQL password.
 - **db_host**: The host address of your MySQL database (e.g., localhost).
 - **db_name**: The name of the database you want to query.
-- **GOOGLE_API_KEY**: Your API key for Google Generative AI.
 
 ---
 
@@ -82,25 +85,35 @@ This will start the Streamlit server and you can access the web interface in you
 
 ## Project Structure
 
-- **app.py**: The main Python file that runs the Streamlit application.
-- **.env**: A file to store environment variables like database credentials and Google API key.
-- **requirements.txt**: List of all the required dependencies for the project.
-- **README.md**: The readme file you're currently reading.
+/your_project_folder
+│
+├── app.py                       # The main Python file that runs the Streamlit application.
+├── .env                         # A file to store environment variables like database credentials and Google-Gemini-AI API key.
+├── requirements.txt             # List of all the required dependencies for the project.
+├── README.md                    # The readme file you're currently reading.
+├── database/                    # Folder containing the database files
+│   ├── retail_sales_db.sql      # SQL script for creating and populating the database.
+└── retail_sales.ipynb           # Jupyter notebook containing queries, visualizations, and insights based on the database.
 
 ---
 
 ## Technologies Used
 
-- **Streamlit**: A framework for building interactive, web-based applications using Python.
-- **LangChain**: A library that simplifies the creation of LLM-powered applications like this one. It's used to convert natural language into SQL queries.
-- **Google Generative AI**: Google's generative AI model used to create SQL queries from natural language input.
-- **SQLAlchemy**: A Python library for interacting with relational databases like MySQL.
-- **MySQL**: The database system where the queries are executed.
-- **Pandas**: A data manipulation library (used to handle query results).
-- **dotenv**: A library to manage environment variables from a `.env` file.
+## Technologies Used
+
+- **Streamlit**: Powers the user interface, enabling users to interact with the application in real-time through a web-based platform.
+- **LangChain**: Simplifies the creation of LLM-powered applications, converting natural language inputs into SQL queries.
+- **Google Generative AI**: Utilizes Google's Gemini Pro model to generate SQL queries from natural language inputs with high accuracy.
+- **SQLAlchemy**: Serves as the ORM for database interaction, ensuring seamless communication with the MySQL database.
+- **MySQL**: The relational database system where the generated queries are executed.
+- **dotenv (python-dotenv)**: Manages sensitive environment variables stored in the `.env` file.
+- **PyMySQL**: Provides the necessary driver for connecting Python with the MySQL database.
+- **LangChain Experimental**: Adds experimental features to enhance LangChain's core capabilities.
+- **LangChain Community**: Extends LangChain with community-driven utilities and tools.
+- **LangChain Core**: Core functionalities for building applications powered by language models.
+- **ipykernel**: Enables the Jupyter notebook environment for working with Python kernels, used in analyzing and querying the database.
 
 ---
-
 ## Usage
 
 1. **Enter a Question**: Type a question related to your database in the input box. Example questions could be:
@@ -112,6 +125,15 @@ This will start the Streamlit server and you can access the web interface in you
 3. **Fetch Results**: After the query is generated, click the "Fetch Results" button to retrieve the results from the database. The results will be displayed on the right side of the interface.
 
 4. **View Query and Results**: The SQL query and its results are displayed in two separate columns for easy comparison.
+
+---
+
+## Use Case
+
+This application is ideal for users who need to interact with a MySQL database but are not familiar with SQL. Whether you're an analyst, business professional, or developer, you can easily generate SQL queries from natural language and retrieve results from the database without writing SQL manually. Some potential use cases include:
+- **Business Analytics**: Generate and execute queries for sales data, customer insights, and inventory management.
+- **Product Managers**: Retrieve data on product performance, customer preferences, and sales trends.
+- **Data Analysts**: Quickly query databases without needing to be proficient in SQL syntax.
 
 ---
 
@@ -129,4 +151,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any questions or issues, feel free to reach out at [your-email@example.com](mailto:your-email@example.com).
+For any questions or issues, feel free to open an issue at [QueryBot](https://github.com/Gaurav-576/QueryBot).
+
+---
+
+## Support and Contribution
+
+If you find this project useful, please give it a ⭐️ by starring the repository. Contributions are always welcome, whether it's to improve features or fix bugs!
