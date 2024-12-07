@@ -1,19 +1,22 @@
 import os
 import textwrap
 import streamlit as st
-from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.exc import ProgrammingError
 from langchain.chains import create_sql_query_chain
 from langchain_google_genai import GoogleGenerativeAI
 from langchain_community.utilities import SQLDatabase
 
-load_dotenv()
+db_host=st.secrets["database"]["db_host"]
+db_user=st.secrets["database"]["db_user"]
+db_password=st.secrets["database"]["db_password"]
+db_name=st.secrets["database"]["db_name"]
+GEMINI_API_KEY=st.secrets["gemini"]["GEMINI_API_KEY"]
 
-engine=create_engine(f"mysql+pymysql://{os.getenv('db_user')}:{os.getenv('db_password')}@{os.getenv('db_host')}/{os.getenv('db_name')}")
+engine=create_engine(f"mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}")
 db=SQLDatabase(engine)
 
-llm=GoogleGenerativeAI(model="gemini-pro",google_api_key=os.getenv("GOOGLE_API_KEY"))
+llm=GoogleGenerativeAI(model="gemini-pro",google_api_key=GEMINI_API_KEY)
 sql_chain=create_sql_query_chain(llm,db)
 
 def chain(input_text):
