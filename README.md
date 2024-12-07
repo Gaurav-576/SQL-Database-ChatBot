@@ -3,7 +3,7 @@
 Experience the magic of **QueryBot** in action right now!
 Check out the live version of the app by clicking the link below:
 
-🔗 [Visit the Live Demo]()
+🔗 [Visit the Live Demo](https://querybot-sql-db-chatbot.streamlit.app/)
 
 👉 **Interact with the app** and see how it converts your natural language prompts into SQL queries and fetches real-time results from the database!
 
