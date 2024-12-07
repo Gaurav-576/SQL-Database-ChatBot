@@ -1,0 +1,10 @@
+ipykernel
+python-dotenv
+langchain-google-genai
+langchain
+langchain_experimental
+streamlit
+sqlalchemy
+langchain_community
+langchain_core
+pymysql
