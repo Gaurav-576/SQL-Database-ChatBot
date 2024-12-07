@@ -1,3 +1,16 @@
+### 🚀 Checkout the Live Project! 🌐
+
+Experience the magic of **QueryBot** in action right now!
+Check out the live version of the app by clicking the link below:
+
+🔗 [Visit the Live Demo]()
+
+👉 **Interact with the app** and see how it converts your natural language prompts into SQL queries and fetches real-time results from the database!
+
+Feel free to test it out and let us know what you think. Don't forget to star the repository if you love the project! ⭐
+
+---
+
 # SQL Query Generator using LangChain and Google-Gemini-Pro
 
 ## Project Overview
@@ -85,15 +98,17 @@ This will start the Streamlit server and you can access the web interface in you
 
 ## Project Structure
 
-/your_project_folder
+```bash
+/QueryBot
 │
-├── app.py                       # The main Python file that runs the Streamlit application.
-├── .env                         # A file to store environment variables like database credentials and Google-Gemini-AI API key.
-├── requirements.txt             # List of all the required dependencies for the project.
-├── README.md                    # The readme file you're currently reading.
-├── database/                    # Folder containing the database files
-│   ├── retail_sales_db.sql      # SQL script for creating and populating the database.
-└── retail_sales.ipynb           # Jupyter notebook containing queries, visualizations, and insights based on the database.
+├── app.py                     # The main Python file that runs the Streamlit application.
+├── .env                       # A file to store environment variables like database credentials and Google-Gemini-AI API key.
+├── requirements.txt           # List of all the required dependencies for the project.
+├── README.md                  # The readme file you're currently reading.
+├── database/                  # Folder containing the database files
+│   ├── retail_sales_db.sql    # SQL script for creating and populating the database.
+└── retail_sales.ipynb         # Jupyter notebook containing queries, visualizations, and insights based on the database.
+```
 
 ---
 
