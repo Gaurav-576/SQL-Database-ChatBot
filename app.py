@@ -11,12 +11,12 @@ db_host=st.secrets["database"]["db_host"]
 db_user=st.secrets["database"]["db_user"]
 db_password=st.secrets["database"]["db_password"]
 db_name=st.secrets["database"]["db_name"]
-GEMINI_API_KEY=st.secrets["gemini"]["GEMINI_API_KEY"]
+api_key=st.secrets["gemini"]["GEMINI_API_KEY"]
 
 engine=create_engine(f"mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}")
 db=SQLDatabase(engine)
 
-llm=GoogleGenerativeAI(model="gemini-pro",google_api_key=GEMINI_API_KEY)
+llm=GoogleGenerativeAI(model="gemini-pro",google_api_key=api_key)
 sql_chain=create_sql_query_chain(llm,db)
 
 def chain(input_text):
