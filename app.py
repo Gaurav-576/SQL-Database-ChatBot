@@ -12,6 +12,7 @@ db_user=st.secrets["database"]["db_user"]
 db_password=st.secrets["database"]["db_password"]
 db_name=st.secrets["database"]["db_name"]
 api_key=st.secrets["gemini"]["GEMINI_API_KEY"]
+print(db_host,db_user,db_password,db_name,api_key)
 
 engine=create_engine(f"mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}")
 db=SQLDatabase(engine)
